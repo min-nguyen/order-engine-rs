@@ -4,6 +4,7 @@ use crate::order_queue::{OrderIndex, OrderQueue, OrderQueueError};
 /* ## Order Book
 Queues of available buy and sell orders for a particular company, trading pair, or commodity.
 */
+
 pub struct OrderBook {
     buy_orders: OrderQueue,
     sell_orders: OrderQueue,
@@ -19,11 +20,10 @@ impl OrderBook {
         }
     }
 
-    // pub fn handle_order(&mut self, order: Order) -> Result<(), OrderErr> {
-    //     order.validate()?;
-    //     let buy_or_sell: OrderSide = order.side();
-    //     Ok(())
-    // }
+    pub fn handle_order(&mut self, order: Order) -> Result<(), OrderErr> {
+        order.validate()?;
+        todo!()
+    }
 
     fn insert_limit_order(&mut self, order: Order) {
         let res: Result<(), OrderQueueError> = match order.side() {

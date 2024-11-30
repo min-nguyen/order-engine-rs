@@ -5,9 +5,10 @@ use std::{
     ops::{Deref, DerefMut},
 };
 
-/* OrderQueue
+/* ## OrderQueue
 Ordered mapping of price-times to their active limit orders
 */
+
 #[derive(Debug, Clone)]
 pub struct OrderQueue(BTreeMap<OrderIndex, Order>);
 
